@@ -1,11 +1,14 @@
-# Frontend-unit-testing01
+# Frontend Unit Testing 01
 Vitest + React
 
-# React Unit Testing Workshop
+## React Unit Testing Workshop
 โปรเจกต์นี้จัดทำขึ้นเพื่อสาธิตการเขียน Unit Testing บน React โดยใช้ Vitest และ React Testing Library เพื่อทดสอบการทำงานของ Component ต่างๆ ทั้งในส่วนของ Logic, การเรียก API และการตรวจสอบความถูกต้องของฟอร์ม
 
-# โครงสร้างโปรเจกต์
-text
+---
+
+## โครงสร้างโปรเจกต์
+
+```text
 .
 ├── src
 │   ├── components
@@ -19,49 +22,64 @@ text
 │   └── main.jsx
 ├── test-setup.js                  # การตั้งค่าเริ่มต้นสำหรับสภาพแวดล้อมการทดสอบ
 └── vite.config.js                 # การตั้งค่า Vite และ Vitest
+```
 
+---
 
-# รายละเอียดการทดสอบ
-1. Counter Component
-ทดสอบการแสดงผลค่าเริ่มต้นของตัวนับ
-ทดสอบการทำงานของปุ่มเพิ่มค่า (Increment) เมื่อมีการคลิก
-ทดสอบการทำงานของปุ่มลดค่า (Decrement) เมื่อมีการคลิก
+## รายละเอียดการทดสอบ
 
-2. UserList Component
-ทดสอบการดึงข้อมูลจาก API ผ่าน Axios เมื่อ Component ถูก Render
-ทดสอบการนำข้อมูลที่ได้รับมาแสดงผลบนตารางอย่างถูกต้อง
-ทดสอบระบบค้นหา (Search) โดยกรองข้อมูลตามชื่อหรืออีเมลจากข้อความที่พิมพ์ใน 
+### 1. Counter Component
+* ทดสอบการแสดงผลค่าเริ่มต้นของตัวนับ (ผูกกับ React Hook)
+* ทดสอบการทำงานของปุ่มเพิ่มค่า (Increment) เมื่อมีการคลิก
+* ทดสอบการทำงานของปุ่มลดค่า (Decrement) เมื่อมีการคลิก
 
-3. RegisterForm Component
-ทดสอบความถูกต้องของข้อมูล (Validation):
-ชื่อ: ต้องไม่เป็นค่าว่าง
-อีเมล: ต้องถูกต้องตามรูปแบบ Email Format
-เบอร์โทรศัพท์: ต้องเป็นตัวเลขครบ 10 หลัก
-ทดสอบการส่งข้อมูล (Submit): ข้อมูลต้องถูกส่งไปยัง API เฉพาะเมื่อผ่านการตรวจสอบทั้งหมดแล้ว
+### 2. UserList Component
+* ทดสอบการดึงข้อมูลจาก API ผ่าน Axios เมื่อ Component เริ่ม Render
+* ทดสอบการนำข้อมูลมาแสดงผลบนตารางในทุกแถวของผู้ใช้
+* ทดสอบระบบค้นหา (Search) จาก Input โดยกรองตามชื่อหรืออีเมล
 
-# การติดตั้ง
-สร้างโปรเจกต์และติดตั้ง Library พื้นฐาน:
-bash
+### 3. RegisterForm Component
+* **Validation Testing:**
+    * ชื่อ (Name): ต้องมีการกรอกข้อมูล
+    * อีเมล (Email): ต้องถูกต้องตามรูปแบบ (Format)
+    * เบอร์โทรศัพท์ (Phone): ต้องเป็นตัวเลขครบ 10 หลัก
+* **Submission Testing:** ข้อมูลต้องถูกส่งไปยัง API เฉพาะเมื่อผ่านการตรวจสอบทั้งหมดแล้ว
+
+---
+
+## การติดตั้ง
+
+1. **สร้างโปรเจกต์และติดตั้ง Library พื้นฐาน:**
+```bash
 npm create vite@latest react-test-app -- --template react
 cd react-test-app
 npm install
+```
 
-# ติดตั้งเครื่องมือสำหรับการทดสอบ:
-npm install --save-dev vitest @testing-library/react 
-npx vitest --ui
-npx vitest --coverage
-@testing-library/jest-dom
+2. **ติดตั้งเครื่องมือสำหรับการทดสอบ:**
+```bash
+npm install --save-dev vitest @testing-library/react @testing-library/jest-dom @vitest/ui @vitest/coverage-v8
+```
 
-# วิธีการใช้งาน
-รันแอปพลิเคชัน
-bash
+---
+
+## วิธีการใช้งาน
+
+### รันแอปพลิเคชัน (Development)
+```bash
 npm run dev
+```
 
-
-# รันการทดสอบ (Unit Test)
-bash
-npx vitest
-npx vitest --coverage
-npx vitest --ui
-
-
+### รันการทดสอบ (Testing)
+* **รัน Test ปกติ:**
+  ```bash
+  npx vitest
+  ```
+* **รัน Test แบบ UI Mode (เปิดบน Browser):**
+  ```bash
+  npx vitest --ui
+  ```
+* **รัน Test พร้อมดู Coverage Report:**
+  ```bash
+  npx vitest --coverage
+  ```
