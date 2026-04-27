@@ -1,12 +1,11 @@
-import './App.css'
 // import Counter from './components/Counter/Counter';
-import UserList from './components/UserList/UserList';
+// import UserList from './components/UserList/UserList';
+import RegisterForm from './components/RegisterForm/RegisterForm'
 
 function App() {
   return (
     <>
-    <h1>React Test App</h1>
-    <UserList />
+    <RegisterForm />
     </>
   )
 }
